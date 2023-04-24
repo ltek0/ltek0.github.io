@@ -1,0 +1,58 @@
+:root {
+  --bg: #0E1F3B;
+  --fade-left: fadeAndSlideIn 0.5s forwards
+}
+a, body, banner {color: #fff; text-align: left;}
+a {text-decoration: none;}
+a:hover {color: #546ccf;}
+body {background-color: var(--bg);}
+
+@keyframes fadeAndSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.navbar-brand, .ccard, .banner p, .banner h1, .nav-link{will-change: opacity;animation: var(--fade-left); opacity: 0}
+
+.ccard:nth-child(1),.nav-link:nth-child(1){animation-delay: .3s}
+.ccard:nth-child(2),.nav-link:nth-child(2){animation-delay: .5s}
+.ccard:nth-child(3),.nav-link:nth-child(3){animation-delay: .7s}
+.ccard:nth-child(4),.nav-link:nth-child(4){animation-delay: .9s}
+
+.ccard{
+    padding: 10px 0;
+    text-align: left;
+}
+
+.banner {position: relative;}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg) url('/src/hk.jpg') no-repeat 0% 10% / cover;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+.navbar, .banner{
+  user-select: none;
+}
+
+.icon {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.p {
+    margin-bottom: 0;
+}
