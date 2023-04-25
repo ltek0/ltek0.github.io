@@ -1,6 +1,5 @@
 :root {
   --bg: #0E1F3B;
-  --fade-left: fadeAndSlideIn 0.5s forwards
 }
 a, body, banner {color: #fff; text-align: left;}
 a {text-decoration: none;}
@@ -8,25 +7,27 @@ a:hover {color: #546ccf;}
 body {background-color: var(--bg);}
 
 @keyframes fadeAndSlideIn {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -20%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+  0% {opacity: 0;transform: translate3d(0, -20%, 0);}
+  100% {opacity: 1;transform: translate3d(0, 0, 0);}
+}
+@keyframes fade-in {
+  from {opacity: 0;background-position: -100% 10%;}
+  to {opacity: 1;background-position: 0% 10%;}
 }
 
-.navbar-brand, .ccard, .banner p, .banner h1, .nav-link{will-change: opacity;animation: var(--fade-left); opacity: 0}
+.navbar-brand, .nav-link,.banner p,.banner h1, .ccard, .fade-t{will-change: opacity;animation: fadeAndSlideIn 0.5s forwards; opacity: 0}
 
-.ccard:nth-child(1),.nav-link:nth-child(1){animation-delay: .3s}
-.ccard:nth-child(2),.nav-link:nth-child(2){animation-delay: .5s}
-.ccard:nth-child(3),.nav-link:nth-child(3){animation-delay: .7s}
-.ccard:nth-child(4),.nav-link:nth-child(4){animation-delay: .9s}
+.nav-link:nth-child(1),.ap3s{animation-delay: .3s}
+.nav-link:nth-child(1),.ap3s{animation-delay: .3s}
+.nav-link:nth-child(2),.ap5s{animation-delay: .5s}
+.nav-link:nth-child(3),.ap7s{animation-delay: .7s}
+.nav-link:nth-child(4),.ap9s{animation-delay: .9s}
+.ap11s{animation-delay: 1.1s}
+.ap13s{animation-delay: 1.3s}
+.ap15s{animation-delay: 1.5s}
 
 .ccard{
-    padding: 10px 0;
+    padding: 10px;
     text-align: left;
 }
 
@@ -41,6 +42,8 @@ body {background-color: var(--bg);}
   background: var(--bg) url('/src/hk.jpg') no-repeat 0% 10% / cover;
   filter: blur(4px);
   z-index: -1;
+  animation: fade-in 1s forwards;
+  opacity: 0;
 }
 
 .navbar, .banner{
