@@ -1,49 +1,52 @@
-:root {
-  --bg: #0E1F3B;
-}
+:root {--bg: #0E1F3B;}
 a, body, banner {color: #fff; text-align: left;}
 a {text-decoration: none;}
 a:hover {color: #546ccf;}
 body {background-color: var(--bg);}
 
+.navbar-brand, .nav-link,.banner p,.banner h1, .ccard, .fade-t, .nosbox{will-change: opacity;animation: fadeAndSlideIn 0.5s forwards; opacity: 0}
 @keyframes fadeAndSlideIn {
   0% {opacity: 0;transform: translate3d(0, -20%, 0);}
   100% {opacity: 1;transform: translate3d(0, 0, 0);}
 }
-@keyframes fade-in {
-  from {opacity: 0;background-position: -100% 10%;}
-  to {opacity: 1;background-position: 0% 10%;}
-}
-
-.navbar-brand, .nav-link,.banner p,.banner h1, .ccard, .fade-t{will-change: opacity;animation: fadeAndSlideIn 0.5s forwards; opacity: 0}
-
 .nav-link:nth-child(1),.ap3s{animation-delay: .3s}
 .nav-link:nth-child(1),.ap3s{animation-delay: .3s}
 .nav-link:nth-child(2),.ap5s{animation-delay: .5s}
 .nav-link:nth-child(3),.ap7s{animation-delay: .7s}
 .nav-link:nth-child(4),.ap9s{animation-delay: .9s}
 
-.ccard{
+.ccard, .nosbox{
     padding: 10px;
     text-align: left;
 }
 
-.banner {position: relative;}
+.banner,.nosbox {position: relative;}
+.nosbox {color: #c4d600;animation-delay: 1.2s;}
+.nosbox::before, .banner::before {content: ""; opacity: 0; top: 0; left: 0; z-index: -1; position: absolute;}
 .banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: var(--bg) url('/src/hk.jpg') no-repeat 0% 10% / cover;
   filter: blur(4px);
-  z-index: -1;
   animation: fade-in 1s forwards;
-  opacity: 0;
+}
+.nosbox::before {
+  right: 0;
+  bottom: 0;
+  background-color: rgba(128, 0, 128, 0.726);
+  animation: flash 4s ease-in-out infinite;
+}
+@keyframes flash {
+  0% {opacity: 0.7;}
+  50% {opacity: 1;}
+  100% {opacity: 0.7;}
+}
+@keyframes fade-in {
+  from {opacity: 0;background-position: center center;}
+  to {opacity: 1;background-position: center center;}
 }
 
-.navbar, .banner{
+.navbar, .banner, .nosbox{
   user-select: none;
 }
 
